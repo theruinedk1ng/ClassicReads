@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 
 
 from .forms import CreateUserForm
@@ -61,11 +62,21 @@ def handle_login(request):
         if login_form.is_valid():
             user = login_form.get_user()
             login(request, user)
-            return redirect('dashboard')  
+
+            if request.POST.get('remember_me'):
+                request.session.set_expiry(1209600) 
+            else:
+                request.session.set_expiry(0) 
+
+            return redirect('dashboard')
     else:
         login_form = AuthenticationForm()
 
-    return render(request, 'books/login.html', {'login_form': login_form})
+    return render(request, 'books/myprofile.html', {'login_form': login_form})
+
+def logout(request):
+    logout(request)
+    return redirect('myprofile')
 
 def myprofile(request):
     if request.method == 'POST':
@@ -81,7 +92,6 @@ def myprofile(request):
 
 
 def aboutus(request):
-    
     return render(request, 'books/aboutus.html')
 
 def success_page(request):

@@ -15,7 +15,7 @@
 
     <div class="login form">
       <header>Login</header>
-      <form method="POST" action="{% url 'myprofile' %}">
+      <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
         
         <div>
@@ -32,14 +32,22 @@
           {% endfor %}
         </div>
 
+        <div class="remember" style="display: inline-flex; align-items: center; gap: 3px; margin-top: -10px;">
+          <input type="checkbox" name="remember_me" id="remember_me" 
+                 style="transform: scale(0.6); cursor: pointer; margin: 0;">
+          <label for="remember_me">Remember Me</label>
+        </div>
+        
         {% for error in login_form.non_field_errors %}
           <p style="color: red;">{{ error }}</p>
         {% endfor %}
 
-        <a href="#">Forgot password?</a>
         <input type="submit" name="login" class="button" value="Login">
+
       </form>
       <div class="signup">
+        <a href="#">Forgot your password?</a>
+        <br>
         <span class="signup">Don't have an account?
           <a href="{% url 'signuppage' %}">Signup</a>
         </span>
@@ -48,7 +56,6 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-
       let fields = {
         usernameLogin: document.querySelector(".login input[name='username']"),
         passwordLogin: document.querySelector(".login input[name='password']")
@@ -60,5 +67,4 @@
   </script>
 
 </body>
-
 </html>

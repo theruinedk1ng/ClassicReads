@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>ClassicReads</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'books/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'books/myprfl.css' %}">
+</head>
+
+{% include "books/nav.html" %}
+
+<body>
+    <div class='logout'>
+        <a href="{% url 'myprofile' %}">Logout</a>
+    </div>
+</body>

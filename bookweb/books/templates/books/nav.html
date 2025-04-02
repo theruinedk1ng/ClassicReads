@@ -3,6 +3,10 @@
     <li><a class="collapse-item" href="{% url 'discover' %}">Discover</a></li>
     <li><a class="collapse-item" href="{% url 'mybooks' %}">My Books</a></li>
     <input type="text" placeholder="Search..">
-    <li><a class="collapse-item" href="{% url 'myprofile' %}">My Profile</a></li>
+    {% if request.user.is_authenticated %}
+    <li><a class="collapse-item" href="{% url 'success_page' %}">My Profile</a></li>
+    {% else %}
+    <li><a class="collapse-item" href="{% url 'myprofile' %}">Login</a></li>
+    {% endif %}
     <li><a class="collapse-item" href="{% url 'aboutus' %}">About Us</a></li>
 </div>

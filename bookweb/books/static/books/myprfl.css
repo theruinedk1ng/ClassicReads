@@ -5,15 +5,9 @@
 }
 
 body {
-    background-image: url('falsifiers.jpg');
-    height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    overflow-y: hidden;
-  }
-
-
+  background-image: url('back.jpg');
+  background-size: cover;
+}
 
 .menu{
     margin: 30px;
@@ -78,6 +72,7 @@ ul{
   border-radius: 7px;
   box-shadow: 0 5px 10px rgba(0,0,0,0.3);
 }
+
 .container .registration{
   display: none;
 }
