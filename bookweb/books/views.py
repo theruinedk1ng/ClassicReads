@@ -100,3 +100,8 @@ def success_page(request):
 def dashboard(request):
 
     return render(request, 'books/dashboard.html')
+
+def userProfile(request, pk):
+    user = User.objects.get(id=pk)
+    context = {'user': user}
+    return render(request, 'books/success.html', context)

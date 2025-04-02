@@ -4,13 +4,13 @@
     {% load static %}
     <title>ClassicReads</title>
     <link rel="icon" type="image/x-icon" href="{% static 'books/favicon.png' %}">
-    <link rel="stylesheet" href="{% static 'books/myprfl.css' %}">
+    <link rel="stylesheet" href="{% static 'books/profile.css' %}">
 </head>
 
 {% include "books/nav.html" %}
 
-<body>
-    <div class='logout'>
-        <a href="{% url 'myprofile' %}">Logout</a>
-    </div>
-</body>
+{% block content %}
+
+<h1>{{user.username}}</h1>
+
+{% endblock content%}
