@@ -52,6 +52,19 @@ body {
       outline: transparent;
       color: white;
   }
+.profile-container{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
 
 a:hover{
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
