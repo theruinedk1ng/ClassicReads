@@ -7,10 +7,20 @@
     <link rel="stylesheet" href="{% static 'books/profile.css' %}">
 </head>
 
-{% include "books/nav.html" %}
+<body>
 
-{% block content %}
+    {% include "books/nav.html" %}
 
-<h1>{{user.username}}</h1>
+    {% block content %}
 
-{% endblock content%}
+    <div class="profile-container">
+        <br><br>
+        <h1>Welcome, {{ user.username }}!</h1>
+        <br><br>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+
+    {% endblock content %}
+
+</body>
+</html>

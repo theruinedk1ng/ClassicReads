@@ -3,9 +3,11 @@ import random
 from django.http import HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth import login, authenticate
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from .forms import ProfilePictureForm
+from django.contrib.auth import logout as django_logout
 
 
 from .forms import CreateUserForm
@@ -75,7 +77,7 @@ def handle_login(request):
     return render(request, 'books/myprofile.html', {'login_form': login_form})
 
 def logout(request):
-    logout(request)
+    django_logout(request)
     return redirect('myprofile')
 
 def myprofile(request):
@@ -99,7 +101,7 @@ def success_page(request):
 
 def dashboard(request):
 
-    return render(request, 'books/dashboard.html')
+    return render(request, 'books/success.html')
 
 def userProfile(request, pk):
     user = User.objects.get(id=pk)
