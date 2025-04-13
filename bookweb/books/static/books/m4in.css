@@ -88,3 +88,9 @@ ul{
 a:hover{
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
 }
+
+.blitz{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
