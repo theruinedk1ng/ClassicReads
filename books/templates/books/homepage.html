@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    <title>ClassicReads</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'books/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'books/m4in.css' %}">
+</head>
+
+<body>
+
+    {% include "books/nav.html" %}
+
+    <div class="pula">
+        <br>
+        <p1>{{ random_text }}</p1>
+    </div>
+
+    <div class="arcane">
+        <br><br><br><br>
+        <p2>A classic stands the test of time. The work is usually considered to be a representation of the period in which it was written; and the work merits lasting recognition. In other words, if the book was published in the recent past, the work is not a classic.</p2>
+        <br><br>
+        <p3>A classic has a certain universal appeal. Great works of literature touch us to our very core beings--partly because they integrate themes that are understood by readers from a wide range of backgrounds and levels of experience. Themes of love, hate, death, life, and faith touch upon some of our most basic emotional responses.</p3>
+        <br><br>
+        <p4>Everyone loves a classic novel, but where to start? From Jane Austen to Charles Dickens, Toni Morrison to Fyodor Dostoevsky, the fiction canon is so vast you can easily get lost in it.</p4>
+
+    </div>
+    
+</body>
+
+</html>

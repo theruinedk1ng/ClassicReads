@@ -1,0 +1,73 @@
+*{
+    padding: 0 ;
+    margin: 0;
+    font-family: 'Dosis' ,sans-serif;
+}
+
+body {
+    background-image: url('back.jpg');
+    background-size: cover;
+  }
+  
+  .menu{
+      margin: 30px;
+      margin-top: 10px;
+      align-items: left;
+      display: flex;
+      font-size: larger;
+      font-weight: bold;
+  }
+  
+  ul{
+      cursor: pointer;
+  }
+  
+  
+  .menu li{
+      list-style: none;
+      margin: 30px;
+      width: auto;
+  }
+  
+  .menu li a{
+      color: white;
+      text-decoration: none;
+  }
+  
+  .menu input[type=text] {
+      background-color: transparent;
+      height: 10px;
+      float: right;
+      padding: 6px;
+      margin: 15px;
+      border: none;
+      width: 200px;
+      margin-top: 30px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  
+  .menu input[type=text]:focus{
+      border: none;
+      outline: transparent;
+      color: white;
+  }
+
+  
+.profile-container{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    flex-direction: column;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+a:hover{
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+}

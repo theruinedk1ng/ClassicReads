@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>ClassicReads</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'books/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'books/myprfl.css' %}">
+</head>
+
+{% include "books/nav.html" %}
+
+<body>
+    <div class="container">
+        <input type="checkbox" id="check">
+        <div class="login form">
+        <header>Sign up</header>
+        <form method="POST" action="{% url 'signuppage' %}">
+        {% csrf_token %}
+
+        <div>
+          {{ signup_form.email }}
+          {% for error in signup_form.email.errors %}
+              <p style="color: red;">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div>
+          {{ signup_form.username }}
+          {% for error in signup_form.username.errors %}
+              <p style="color: red;">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div>
+          {{ signup_form.password1 }}
+          {% for error in signup_form.password1.errors %}
+              <p style="color: red;">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div>
+          {{ signup_form.password2 }}
+          {% for error in signup_form.password2.errors %}
+              <p style="color: red;">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        {% for error in signup_form.non_field_errors %}
+          <p style="color: red;">{{ error }}</p>
+        {% endfor %}
+
+        <input type="submit" name="signup" class="button" value="Sign up">
+      </form>
+      <div class="signup">
+        <span class="signup">Already have an account?
+            <a href="{% url 'myprofile' %}">Login</a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    let form = document.querySelector(".form");
+  
+      if (form) {
+        let usernameInput = form.querySelector("input[name='username']");
+        let emailInput = form.querySelector("input[name='email']");
+        let passwordInput1 = form.querySelector("input[name='password1']");
+        let passwordInput2 = form.querySelector("input[name='password2']");
+  
+        if (usernameInput) usernameInput.placeholder = "Choose a username";
+        if (emailInput) emailInput.placeholder = "Enter your email";
+        if (passwordInput1) passwordInput1.placeholder = "Enter a password";
+        if (passwordInput2) passwordInput2.placeholder = "Confirm your password";
+      }
+    });
+</script>
+  
+
+</body>
+
+</html>

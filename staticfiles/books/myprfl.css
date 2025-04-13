@@ -1,0 +1,148 @@
+*{
+    padding: 0 ;
+    margin: 0;
+    font-family: 'Dosis' ,sans-serif;
+}
+
+body {
+    background-image: url('back.jpg');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+.menu{
+    margin: 30px;
+    margin-top: 10px;
+    align-items: left;
+    display: flex;
+    font-size: larger;
+    font-weight: bold;
+}
+
+ul{
+    cursor: pointer;
+}
+
+
+.menu li{
+    list-style: none;
+    margin: 30px;
+    width: auto;
+}
+
+.menu li a{
+    color: white;
+    text-decoration: none;
+}
+
+.menu input[type=text] {
+    background-color: transparent;
+    height: 10px;
+    float: right;
+    padding: 6px;
+    margin: 15px;
+    border: none;
+    width: 200px;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+.menu input[type=text]:focus{
+    border: none;
+    outline: transparent;
+    color: white;
+}
+
+
+.sign{
+    color:white;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 450px;
+  width: 100%;
+  background: #ffffffc0;
+  border-radius: 7px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.container .registration{
+  display: none;
+}
+#check:checked ~ .registration{
+  display: block;
+}
+#check:checked ~ .login{
+  display: none;
+}
+#check{
+  display: none;
+}
+.container .form{
+  padding: 2rem;
+}
+
+.form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}  
+
+.form input{
+  height: 60px;
+  width: 90%;
+  padding: 0 15px;
+  font-size: 17px;
+  margin-bottom: 1.3rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+   }
+.form input:focus{
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+.form a{
+  font-size: 16px;
+  color: #323232;
+  text-decoration: none;
+}
+.form a:hover{
+  text-decoration: underline;
+}
+.form input.button{
+  align-items: center;
+  color: #fff;
+  background: #323232;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 1.7rem;
+  cursor: pointer;
+  transition: 0.4s;
+  width: 98%;
+}
+.form input.button:hover{
+  background: #232323;
+}
+.signup{
+  font-size: 17px;
+  text-align: center;
+}
+.signup label{
+  color: #272727;
+  cursor: pointer;
+}
+.signup label:hover{
+  text-decoration: underline;
+}

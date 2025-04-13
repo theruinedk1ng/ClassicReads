@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <title>ClassicReads</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'books/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'books/myprfl.css' %}">
+</head>
+
+{% include "books/nav.html" %}
+
+<body>
+  <div class="container">
+    <input type="checkbox" id="check">
+
+    <div class="login form">
+      <header>Login</header>
+      <form method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        
+        <div>
+          {{ login_form.username }}
+          {% for error in login_form.username.errors %}
+              <p style="color: red;">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div>
+          {{ login_form.password }}
+          {% for error in login_form.password.errors %}
+              <p style="color: red;">{{ error }}</p>
+          {% endfor %}
+        </div>
+
+        <div class="remember" style="display: inline-flex; align-items: center; gap: 3px; margin-top: -10px;">
+          <input type="checkbox" name="remember_me" id="remember_me" 
+                 style="transform: scale(0.6); cursor: pointer; margin: 0;">
+          <label for="remember_me">Remember Me</label>
+        </div>
+        
+        {% for error in login_form.non_field_errors %}
+          <p style="color: red;">{{ error }}</p>
+        {% endfor %}
+
+        <input type="submit" name="login" class="button" value="Login">
+
+      </form>
+      <div class="signup">
+        <a href="#">Forgot your password?</a>
+        <br>
+        <span class="signup">Don't have an account?
+          <a href="{% url 'signuppage' %}">Signup</a>
+        </span>
+      </div>
+    </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let fields = {
+        usernameLogin: document.querySelector(".login input[name='username']"),
+        passwordLogin: document.querySelector(".login input[name='password']")
+      };
+
+      if (fields.usernameLogin) fields.usernameLogin.placeholder = "Enter your username";
+      if (fields.passwordLogin) fields.passwordLogin.placeholder = "Enter your password";
+    });
+  </script>
+
+</body>
+</html>
