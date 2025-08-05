@@ -6,8 +6,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate
 from django.http import HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from .forms import ProfilePictureForm
 from django.contrib.auth import logout as django_logout
+from .models import BooksAndReviews
+from django.contrib.auth.decorators import login_required
 
 
 from .forms import CreateUserForm
@@ -41,9 +42,24 @@ def discover(request):
     
     return render(request, 'books/discover.html')
 
+@login_required
 def mybooks(request):
-    
-    return render(request, 'books/mybooks.html')
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        author = request.POST.get('author')
+
+        if title and author:
+            book = BooksAndReviews.objects.create(title=title, author=author)
+
+        return redirect('mybooks') 
+
+    query = request.GET.get('q')
+    books = BooksAndReviews.objects.all().order_by('-date')
+    if query:
+        books = books.filter(title__icontains=query)
+
+    return render(request, 'books/mybooks.html', {'books': books})
+
 
 def signup_view(request):
     if request.method == 'POST':
@@ -107,3 +123,5 @@ def userProfile(request, pk):
     user = User.objects.get(id=pk)
     context = {'user': user}
     return render(request, 'books/success.html', context)
+
+

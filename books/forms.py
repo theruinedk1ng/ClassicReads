@@ -2,7 +2,7 @@ from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import ProfilePicture
+from .models import BooksAndReviews
 
 
 class CreateUserForm(UserCreationForm):
@@ -29,7 +29,8 @@ class CreateUserForm(UserCreationForm):
         
         return user
 
-class ProfilePictureForm(forms.ModelForm):
+class BooksAndReviewsForm(forms.ModelForm):
     class Meta:
-        model = ProfilePicture
-        fields = {'name', 'image'}
+        model = BooksAndReviews
+        fields = ['title', 'author']
+        

@@ -4,11 +4,41 @@
     {% load static %}
     <title>ClassicReads</title>
     <link rel="icon" type="image/x-icon" href="{% static 'books/favicon.png' %}">
-    <link rel="stylesheet" href="{% static 'books/m4in.css' %}">
+    <link rel="stylesheet" href="{% static 'books/mybooks.css' %}">
 </head>
+
 
 <body>
     {% include "books/nav.html" %}
+
+    <br><br><br><br>
+
+    <div class="addBook">
+        <form method="POST" action="{% url 'mybooks' %}">
+            {% csrf_token %}
+        <input type="text" name="title" placeholder="Add a title...">
+        <input type="text" name="author" placeholder="Add the author...">
+            <button type="submit" class="buton">Add</button>
+        </form>
+    </div>
+
+    <br><br>
+
+    <div class = 'book-list'>
+        <ul>
+            {% for book in books %}
+                <li>
+                    {{ book.title }} 
+                    by {{ book.author }}<br>
+                    Added on: {{ book.date }}
+                </li>
+            {% empty %}
+                <li>No books found.</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+
     
 </body>
 
