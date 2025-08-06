@@ -18,7 +18,8 @@
             {% csrf_token %}
         <input type="text" name="title" placeholder="Add a title...">
         <input type="text" name="author" placeholder="Add the author...">
-            <button type="submit" class="buton">Add</button>
+        <input type="text" name="review" placeholder="Add a review...">
+        <button type="submit" class="buton">Add</button>
         </form>
     </div>
 
@@ -30,6 +31,7 @@
                 <li>
                     {{ book.title }} 
                     by {{ book.author }}<br>
+                    {{ book.review }}
                     Added on: {{ book.date }}
                 </li>
             {% empty %}

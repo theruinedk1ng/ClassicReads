@@ -47,9 +47,10 @@ def mybooks(request):
     if request.method == 'POST':
         title = request.POST.get('title')
         author = request.POST.get('author')
+        review = request.POST.get('review')
 
         if title and author:
-            book = BooksAndReviews.objects.create(title=title, author=author)
+            book = BooksAndReviews.objects.create(title=title, author=author, review=review)
 
         return redirect('mybooks') 
 

@@ -32,5 +32,5 @@ class CreateUserForm(UserCreationForm):
 class BooksAndReviewsForm(forms.ModelForm):
     class Meta:
         model = BooksAndReviews
-        fields = ['title', 'author']
+        fields = ['title', 'author', 'review']
         

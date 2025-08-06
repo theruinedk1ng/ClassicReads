@@ -87,3 +87,44 @@ ul{
 a:hover{
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
 }
+
+.arrange {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  flex-direction:row;
+  margin-left: 150px;
+  gap: 20px;
+}
+
+.preview-link {
+  text-decoration: none;
+  color: white !important;
+}
+
+.preview-link:visited {
+  color: white !important;
+}
+
+.link-preview {
+  max-width: 400px;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #6969697c;
+}
+
+.link-preview img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.preview-content h3,
+.preview-content p {
+  margin: 0;
+  color: white !important;
+}
+
